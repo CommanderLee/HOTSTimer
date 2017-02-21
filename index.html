@@ -1,98 +1,57 @@
 <!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/script.js"></script>
-
-    <title>Hots</title>
-    <meta name="description" content="Timer for HOTS (Heros of the Storm)">
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="javascripts/script.js"></script>
 </head>
-
 <body>
 
-    <div class="wrapper">
-        <header>
-            <h1 class="title">Hots</h1>
-        </header>
-        <div id="container">
-            <p class="tagline">Timer for HOTS (Heros of the Storm)</p>
-            <div id="main" role="main">
-                <!--div class="download-bar">
-                <div class="inner">
-                <a href="https://github.com/CommanderLee/hots/tarball/master" class="download-button tar"><span>Download</span></a>
-                <a href="https://github.com/CommanderLee/hots/zipball/master" class="download-button zip"><span>Download</span></a>
-                <a href="https://github.com/CommanderLee/hots" class="code">View Hots on GitHub</a>
+    <div data-role="page" id="pageone">
+        <div data-role="main" class="ui-content">
+            <h2 id="title">HOTS TIMER</h2>
+            <h2 id="subtitle">Maps</h2>
+            <div id="maps_list">
+                <ul data-role="listview" class="ul_maps" id="table_of_content">
+
+                    <li><a id="towers-of-doom" class="anchor" href="#towers-of-doom" aria-hidden="true"> Towers of Doom 末日塔</a></li>
+
+                    <li><a id="infernal-shrines" class="anchor" href="#infernal-shrines" aria-hidden="true"> Infernal Shrines 炼狱圣坛</a></li>
+
+                    <li><a id="battlefield-of-eternity" class="anchor" href="#battlefield-of-eternity" aria-hidden="true"> Battlefield of Eternity 永恒战场</a></li>
+
+                    <li><a id="tomb-of-the-spider-queen" class="anchor" href="#tomb-of-the-spider-queen" aria-hidden="true"> Tomb of the Spider Queen 蛛后墓</a></li>
+
+                    <li><a id="sky-temple" class="anchor" href="#sky-temple" aria-hidden="true"> Sky Temple 天空殿</a></li>
+
+                    <li><a id="garden-of-terror" class="anchor" href="#garden-of-terror" aria-hidden="true"> Garden of Terror 恐魔园</a></li>
+
+                    <li><a id="blackhearts-bay" class="anchor" href="#blackhearts-bay" aria-hidden="true"> Blackheart's Bay 黑心湾</a></li>
+
+                    <li><a id="dragon-shire" class="anchor" href="#dragon-shire" aria-hidden="true"> Dragon Shire 巨龙镇</a></li>
+
+                    <li><a id="haunted-mines" class="anchor" href="#haunted-mines" aria-hidden="true"> Haunted Mines 鬼灵矿</a></li>
+
+                    <li><a id="cursed-hollow" class="anchor" href="#cursed-hollow" aria-hidden="true"> Cursed Hollow 诅咒谷</a></li>
+
+                    <li><a id="braxis-holdout" class="anchor" href="#braxis-holdout" aria-hidden="true"> Braxis Holdout 布莱克西斯禁区</a></li>
+
+                    <li><a id="warheld-junction" class="anchor" href="#warheld-junction" aria-hidden="true"> Warheld Junction 弹头枢纽站</a></li>
+
+                </ul>
             </div>
-            <span class="blc"></span><span class="trc"></span>
-        </div-->
-        <article class="markdown-body">
+            <div id="map_detail">
+                <p id="description">  </p>
+                <div id="div_clock">
+                    <h3 id="countdown_time"></h3>
+                </div>
+                <button id="btn_timer" onclick="timerClick()"></button>
+            </div>
+        </div>
+    </div>
 
-            <h3>
-                <a id="towers-of-doom" class="anchor" href="#towers-of-doom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Towers of Doom 末日塔</h3>
-
-                <h3>
-                    <a id="infernal-shrines" class="anchor" href="#infernal-shrines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Infernal Shrines 炼狱圣坛</h3>
-
-                    <h3>
-                        <a id="battlefield-of-eternity" class="anchor" href="#battlefield-of-eternity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Battlefield of Eternity 永恒战场</h3>
-
-                        <h3>
-                            <a id="tomb-of-the-spider-queen" class="anchor" href="#tomb-of-the-spider-queen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tomb of the Spider Queen 蛛后墓</h3>
-
-                            <h3>
-                                <a id="sky-temple" class="anchor" href="#sky-temple" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sky Temple 天空殿</h3>
-
-                                <h3>
-                                    <a id="garden-of-terror" class="anchor" href="#garden-of-terror" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Garden of Terror 恐魔园</h3>
-
-                                    <h3>
-                                        <a id="blackhearts-bay" class="anchor" href="#blackhearts-bay" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Blackheart's Bay 黑心湾</h3>
-
-                                        <h3>
-                                            <a id="dragon-shire" class="anchor" href="#dragon-shire" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dragon Shire 巨龙镇</h3>
-
-                                            <h3>
-                                                <a id="haunted-mines" class="anchor" href="#haunted-mines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Haunted Mines 鬼灵矿</h3>
-
-                                                <h3>
-                                                    <a id="cursed-hollow" class="anchor" href="#cursed-hollow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cursed Hollow 诅咒谷</h3>
-
-                                                    <h3>
-                                                        <a id="braxis-holdout" class="anchor" href="#braxis-holdout" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Braxis Holdout 布莱克西斯禁区</h3>
-
-                                                        <h3>
-                                                            <a id="warheld-junction" class="anchor" href="#warheld-junction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warheld Junction 弹头枢纽站</h3>
-
-                                                        </article>
-                                                    </div>
-                                                </div>
-                                                <footer>
-                                                    <div class="owner">
-                                                        <p><a href="https://github.com/CommanderLee" class="avatar"><img src="https://avatars1.githubusercontent.com/u/4384453?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/CommanderLee">CommanderLee</a> maintains <a href="https://github.com/CommanderLee/hots">Hots</a></p>
-
-
-                                                    </div>
-                                                    <div class="creds">
-                                                        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-                                                    </div>
-                                                </footer>
-                                            </div>
-                                            <div class="current-section">
-                                                <a href="#top">Scroll to top</a>
-                                                <a href="https://github.com/CommanderLee/hots/tarball/master" class="tar">tar</a><a href="https://github.com/CommanderLee/hots/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-                                                <p class="name"></p>
-                                            </div>
-
-
-                                        </body>
-                                        </html>
+</body>
+</html>
