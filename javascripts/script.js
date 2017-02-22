@@ -22,9 +22,13 @@ $(document).ready(function()
         document.getElementById("maps_list").style.display = "none";
         // Show maps detail
         document.getElementById("map_detail").style.display = "block";
+        document.getElementById("btn_special").style.display = "none";
+        flagCursed = 0;
         switch(map) {
             case "towers-of-doom":
                 name = "Towers of Doom 末日塔";
+                condition = "条件：所有祭坛均被开启完毕";
+                $('#description').html("注释：可能的祭坛配置：a左上和右上，b中间，c下方，d中间和下方，e左上、右上和中间，f左上、右上和下方。第一次和第五次机制总是e或f的配置，其他时候总是在abcd的配置中选。前六次机制会让6种配置(abcdef)全部出现，之后的第七八九十次机制会让abcd的配置全部出现(因为配置ef不再出现了)。十次机制之后就是随机出现abcd的配置，这时候配置才有重复的可能,所以我们绝对可以预测第五，六次还有第十次的配置");
                 counterInit = 125;
                 rangeInit = 15;
                 counterNext = 125;
@@ -34,47 +38,131 @@ $(document).ready(function()
                 break;
             case "infernal-shrines":
                 name = "Infernal Shrines 炼狱圣坛";
-
+                condition = "条件：惩罚者阵亡";
+                $('#description').html("注释：无");
+                counterInit = 115;
+                rangeInit = 0;
+                counterNext = 115;
+                rangeNext = 0;
+                countdown_time.innerText = "1 : 55";
+                mapInfoInit();
                 break;
             case "battlefield-of-eternity":
                 name = "Battlefield of Eternity 永恒战场";
-
+                condition = "条件：不朽者阵亡";
+                $('#description').html("注释：无");
+                counterInit = 105;
+                rangeInit = 0;
+                counterNext = 105;
+                rangeNext = 0;
+                countdown_time.innerText = "1 : 45";
+                mapInfoInit();
                 break;
             case "tomb-of-the-spider-queen":
                 name = "Tomb of the Spider Queen 蛛后墓";
-
+                condition = "条件：所有蛛后阵亡";
+                $('#description').html("注释：无");
+                counterInit = 180;
+                rangeInit = 0;
+                counterNext = 15;
+                rangeNext = 0;
+                countdown_time.innerText = "3 : 0";
+                mapInfoInit();
                 break;
             case "sky-temple":
                 name = "Sky Temple 天空殿";
-
+                condition = "条件：所有圣殿发射完毕";
+                $('#description').html("注释：1.上+中; 2.下; 3.下+(上或中)");
+                counterInit = 90;
+                rangeInit = 0;
+                counterNext = 120;
+                rangeNext = 0;
+                countdown_time.innerText = "1 : 30";
+                mapInfoInit();
                 break;
             case "garden-of-terror":
                 name = "Garden of Terror 恐魔园";
-
+                condition = "条件：所有种子兵和大种子花消失";
+                $('#description').html("注释：刷新间隔和玩家控制的花的持续时间无关。右下种子计数处的图标花可能是开的，也可能是闭着的。开着就说明，目前地图未被收集的种子数能够开花。闭着就说明，即使把地图所有未拿到的种子都拿到，也依然无法开花");
+                counterInit = 90;
+                rangeInit = 0;
+                counterNext = 200;
+                rangeNext = 0;
+                countdown_time.innerText = "1 : 30";
+                mapInfoInit();
                 break;
             case "blackhearts-bay":
                 name = "Blackheart's Bay 黑心湾";
-
+                condition = "条件：两个箱子都被破";
+                $('#description').html("注释：无");
+                counterInit = 50;
+                rangeInit = 0;
+                counterNext = 175;
+                rangeNext = 25;
+                countdown_time.innerText = "0 : 50";
+                mapInfoInit();
                 break;
             case "dragon-shire":
                 name = "Dragon Shire 巨龙镇";
-
+                condition = "条件：消灭龙";
+                $('#description').html("注释：无");
+                counterInit = 75;
+                rangeInit = 0;
+                counterNext = 120;
+                rangeNext = 0;
+                countdown_time.innerText = "1 : 15";
+                mapInfoInit();
                 break;
             case "haunted-mines":
                 name = "Haunted Mines 鬼灵矿";
-
+                condition = "条件: 两只傀儡阵亡";
+                $('#description').html("注释：无");
+                counterInit = 120;
+                rangeInit = 0;
+                counterNext = 120;
+                rangeNext = 0;
+                countdown_time.innerText = "2 : 00";
+                mapInfoInit();
                 break;
             case "cursed-hollow":
                 name = "Cursed Hollow 诅咒谷";
+                condition = "条件: 拿到贡品/诅咒结束";
+                $('#description').html("注释: 第一次贡品肯定在中列(上下随机)");
+                counterInit = 150;
+                rangeInit = 20;
+                counterNext = 70;
+                rangeNext = 20;
+                countdown_time.innerText = "2 : 30";
 
+                // Special case
+                counterNext2 = 150;
+                rangeNext2 = 20;
+                document.getElementById("btn_special").style.display = "block";
+                flagCursed = 1;
+
+                mapInfoInit();
                 break;
             case "braxis-holdout":
                 name = "Braxis Holdout 布莱克西斯禁区";
-
+                condition = "条件: 所有虫群阵亡";
+                $('#description').html("注释：无");
+                counterInit = 120;
+                rangeInit = 0;
+                counterNext = 115;
+                rangeNext = 0;
+                countdown_time.innerText = "2 : 00";
+                mapInfoInit();
                 break;
             case "warheld-junction":
                 name = "Warheld Junction 弹头枢纽站";
-
+                condition = "条件: 所有弹头被收集";
+                $('#description').html("注释：固定以第奇数次总计2颗，第偶数次总计4颗的规律循环");
+                counterInit = 120;
+                rangeInit = 0;
+                counterNext = 175;
+                rangeNext = 0;
+                countdown_time.innerText = "2 : 00";
+                mapInfoInit();
                 break;
         }
         subtitle.innerText = name;
@@ -88,6 +176,7 @@ function mapInfoInit() {
     currRange = rangeInit;
     counterStatus = 0;
     $('#btn_timer').html("开始计时");
+    document.getElementById('btn_special').style.visibility = "hidden";
 }
 
 function runCounter() {
@@ -97,17 +186,39 @@ function runCounter() {
         setTimeout(runCounter, 1000);
     }
     else if (currTime == 0) {
-        countdown_time.innerText = "条件：所有祭坛均被开启完毕";
+        countdown_time.innerText = condition;
         currTime = counterNext;
         currRange = rangeNext;
         counterStatus = 0;
         $('#btn_timer').html("继续计时");
+        // Special case: Cursed Hollow
+        if (flagCursed == 1) {
+
+            $('#btn_timer').html("拿到贡品，继续计时");
+            $('#btn_special').html("诅咒结束，继续计时");
+            document.getElementById('btn_special').style.visibility = "visible";
+        }
     }
 }
 
 function timerClick() {
     if (counterStatus == 0) {
         counterStatus = 1;
+        $('#btn_timer').html("正在计时...");
+        runCounter();
+    }
+}
+
+function timerSpecialClick() {
+    if (flagCursed == 1 && counterStatus == 0) {
+        counterStatus = 1;
+
+        // Change the default setting
+        currTime = counterNext2;
+        currRange = rangeNext2;
+        $('#btn_timer').html("正在计时...");
+        document.getElementById('btn_special').style.visibility = "hidden";
+
         runCounter();
     }
 }
