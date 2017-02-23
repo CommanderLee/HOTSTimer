@@ -128,15 +128,15 @@ $(document).ready(function()
                 name = "Cursed Hollow 诅咒谷";
                 condition = "条件: 拿到贡品/诅咒结束";
                 $('#description').html("注释: 第一次贡品肯定在中列(上下随机)；第一个贡品之前打胖子；第一个贡品之后打F4");
-                counterInit = 150;
-                rangeInit = 20;
-                counterNext = 70;
-                rangeNext = 20;
-                countdown_time.innerText = "2 : 30";
+                counterInit = 180;
+                rangeInit = 0;
+                counterNext = 75;
+                rangeNext = 0;
+                countdown_time.innerText = "3 : 0";
 
                 // Special case
-                counterNext2 = 150;
-                rangeNext2 = 20;
+                counterNext2 = 125;
+                rangeNext2 = 0;
                 document.getElementById("btn_special").style.display = "block";
                 flagCursed = 1;
 
