@@ -39,7 +39,7 @@ $(document).ready(function()
             case "infernal-shrines":
                 name = "Infernal Shrines 炼狱圣坛";
                 condition = "条件：惩罚者阵亡";
-                $('#description').html("注释：无");
+                $('#description').html("注释：第一波野怪刷新是在2分整，首次打野最合适的时间是防守或跟推惩罚者之后。之后的每次打野可以选着在圣坛刷新之前几十秒或惩罚者处理完毕之后。");
                 counterInit = 115;
                 rangeInit = 0;
                 counterNext = 115;
@@ -83,7 +83,7 @@ $(document).ready(function()
             case "garden-of-terror":
                 name = "Garden of Terror 恐魔园";
                 condition = "条件：所有种子兵和大种子花消失";
-                $('#description').html("注释：刷新间隔和玩家控制的花的持续时间无关。右下种子计数处的图标花可能是开的，也可能是闭着的。开着就说明，目前地图未被收集的种子数能够开花。闭着就说明，即使把地图所有未拿到的种子都拿到，也依然无法开花");
+                $('#description').html("注释：刷新间隔和玩家控制的花的持续时间无关");
                 counterInit = 90;
                 rangeInit = 0;
                 counterNext = 200;
@@ -127,7 +127,7 @@ $(document).ready(function()
             case "cursed-hollow":
                 name = "Cursed Hollow 诅咒谷";
                 condition = "条件: 拿到贡品/诅咒结束";
-                $('#description').html("注释: 第一次贡品肯定在中列(上下随机)");
+                $('#description').html("注释: 第一次贡品肯定在中列(上下随机)；第一个贡品之前打胖子；第一个贡品之后打F4");
                 counterInit = 150;
                 rangeInit = 20;
                 counterNext = 70;
@@ -156,7 +156,7 @@ $(document).ready(function()
             case "warheld-junction":
                 name = "Warheld Junction 弹头枢纽站";
                 condition = "条件: 所有弹头被收集";
-                $('#description').html("注释：固定以第奇数次总计2颗，第偶数次总计4颗的规律循环");
+                $('#description').html("注释：固定以第奇数次总计2颗，第偶数次总计4颗的规律循环；在争夺核弹的同时要尽力把兵线压过去以获得视野；核弹应尽量投放到上下路，因为地图上的BOSS打完后会沿着上下路推进");
                 counterInit = 120;
                 rangeInit = 0;
                 counterNext = 175;
