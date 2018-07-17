@@ -28,7 +28,7 @@ $(document).ready(function()
             case "towers-of-doom":
                 name = "Towers of Doom 末日塔";
                 condition = "条件：所有祭坛均被开启完毕";
-                $('#description').html("注释：爆破兵营地一刷新就去占领，尽可能多地占领地图下半部分的营地。\n 可能的祭坛配置：a左上和右上，b中间，c下方，d中间和下方，e左上、右上和中间，f左上、右上和下方。第一次和第五次机制总是e或f的配置，其他时候总是在abcd的配置中选。前六次机制会让6种配置(abcdef)全部出现，之后的第七八九十次机制会让abcd的配置全部出现(因为配置ef不再出现了)。十次机制之后就是随机出现abcd的配置，这时候配置才有重复的可能,所以我们绝对可以预测第五，六次还有第十次的配置");
+                $('#description').html("注释：爆破兵营地一刷新就去占领，尽可能多地占领地图下半部分的营地。");
                 counterInit = 125;
                 rangeInit = 15;
                 counterNext = 125;
@@ -39,7 +39,7 @@ $(document).ready(function()
             case "infernal-shrines":
                 name = "Infernal Shrines 炼狱圣坛";
                 condition = "条件：惩罚者阵亡";
-                $('#description').html("注释：第一波野怪刷新是在2分整，首次打野最合适的时间是防守或跟推惩罚者之后。之后的每次打野可以选着在圣坛刷新之前几十秒或惩罚者处理完毕之后。\n 在中路和下路轮换过程中的对线阶段占领穿刺者营地。\n 当用第一个穿刺者控制中路后，占领下路的穿刺者。 \n 无论何时，当神殿在中路或下路，尤其是下路刷新时，占领萨满营地。");
+                $('#description').html("注释：在中路和下路轮换过程中的对线阶段占领穿刺者营地。\n 当用第一个穿刺者控制中路后，占领下路的穿刺者。 \n 无论何时，当神殿在中路或下路，尤其是下路刷新时，占领萨满营地。");
                 counterInit = 115;
                 rangeInit = 0;
                 counterNext = 115;
@@ -50,7 +50,7 @@ $(document).ready(function()
             case "battlefield-of-eternity":
                 name = "Battlefield of Eternity 永恒战场";
                 condition = "条件：不朽者阵亡";
-                $('#description').html("注释：拖延占领营地。在第一位不朽者之前占领穿刺者。不朽者刷新时占领萨满营地。");
+                $('#description').html("注释：在第一位不朽者之前占领穿刺者。不朽者刷新时占领萨满营地。");
                 counterInit = 105;
                 rangeInit = 0;
                 counterNext = 105;
@@ -72,7 +72,7 @@ $(document).ready(function()
             case "sky-temple":
                 name = "Sky Temple 天空殿";
                 condition = "条件：所有圣殿发射完毕";
-                $('#description').html("注释：在第一次神殿阶段之前占领巨人和骑士营地。\n1.上+中; 2.下; 3.下+(上或中)");
+                $('#description').html("注释：在第一次神殿阶段之前占领巨人和骑士营地。\n");
                 counterInit = 90;
                 rangeInit = 0;
                 counterNext = 120;
@@ -127,7 +127,7 @@ $(document).ready(function()
             case "cursed-hollow":
                 name = "Cursed Hollow 诅咒谷";
                 condition = "条件: 拿到贡品/诅咒结束";
-                $('#description').html("注释: 第一次贡品肯定在中列(上下随机)；\n第一个贡品之前打胖子（在第一个祭品刷新时占领）；\n第一个贡品之后打F4 （第二个祭品刷新时占领）");
+                $('#description').html("注释: 第一个贡品之前打胖子（在第一个祭品刷新时占领）；\n第一个贡品之后打F4 （第二个祭品刷新时占领）");
                 counterInit = 180;
                 rangeInit = 0;
                 counterNext = 75;
